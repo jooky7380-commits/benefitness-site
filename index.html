@@ -56,8 +56,12 @@ header{position:sticky;top:0;z-index:60;background:rgba(251,250,247,.72);backdro
 
 /* hero */
 .hero{position:relative;min-height:92vh;display:grid;align-items:end;overflow:hidden;background:#111;color:#fff}
-.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9;transform:scale(1.02)}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,14,.08) 0%,rgba(20,18,14,.35) 45%,rgba(20,18,14,.88) 100%)}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9;transform:scale(1.02);filter:brightness(.72) saturate(.9)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,14,.35) 0%,rgba(20,18,14,.5) 40%,rgba(20,18,14,.92) 100%)}
+.hero h1,.hero p{text-shadow:0 2px 24px rgba(0,0,0,.45)}
+.hero .hero-lines{line-height:1.8}
+.hero .hero-lines .hl{display:inline-block;margin-top:10px;color:#fff;font-weight:600}
+@media (max-width:760px){.hero{min-height:100svh}.hero>img{object-position:62% center;filter:brightness(.55) saturate(.85)}.hero::after{background:linear-gradient(180deg,rgba(20,18,14,.55) 0%,rgba(20,18,14,.6) 35%,rgba(20,18,14,.95) 100%)}.hero .wrap{padding-top:110px;padding-bottom:56px}.hero h1{font-size:40px}.hero .hero-lines{font-size:15.5px;line-height:1.75}.hero .stats{gap:18px 26px;margin-top:36px}.hero .stats b{font-size:20px}}
 .hero .wrap{position:relative;z-index:1;padding-bottom:80px;padding-top:140px}
 .hero .label{color:var(--warm2)}
 .hero h1{font-size:clamp(36px,6vw,74px);font-weight:700;max-width:880px;margin-bottom:22px}
@@ -98,6 +102,8 @@ header{position:sticky;top:0;z-index:60;background:rgba(251,250,247,.72);backdro
 .zone-photos{display:grid;gap:10px;grid-template-columns:1fr 1fr}
 .zone-photos img{border-radius:18px;width:100%;height:210px;object-fit:cover;cursor:zoom-in}
 .zone-photos img.wide{grid-column:span 2;height:320px}
+.zone-photos .tap{grid-column:span 2;font-size:12.5px;color:var(--ink3);text-align:center;margin-top:-2px}
+.zone-photos .tap::before{content:"⤢ "}
 .zone-text .tag{display:inline-block;font-size:12px;font-weight:600;color:var(--sage);background:var(--sagebg);padding:5px 11px;border-radius:999px;letter-spacing:.02em}
 .zone-text h3{font-size:clamp(24px,2.4vw,32px);margin:14px 0 12px;font-weight:700}
 .zone-text p{color:var(--ink2);font-size:16px;margin-bottom:14px}
@@ -111,6 +117,34 @@ header{position:sticky;top:0;z-index:60;background:rgba(251,250,247,.72);backdro
 .card-strip h3{font-size:22px;margin-bottom:16px;font-weight:700}
 .card-strip .row{display:flex;gap:12px;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory}
 .card-strip img{height:320px;border-radius:18px;flex:0 0 auto;scroll-snap-align:start;cursor:zoom-in}
+.card-strip .tap{font-size:12.5px;color:var(--ink3);margin-top:6px}
+
+/* moments */
+.moments{background:var(--ink);color:#fff;overflow:hidden;padding:120px 0 100px}
+.moments .label{color:var(--warm2)}
+.moments .lead{color:rgba(255,255,255,.72)}
+.moments h2 em{font-style:normal;color:var(--warm2)}
+.marquee{position:relative;margin-top:56px;display:grid;gap:14px}
+.marquee::before,.marquee::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.marquee::before{left:0;background:linear-gradient(90deg,var(--ink),transparent)}
+.marquee::after{right:0;background:linear-gradient(270deg,var(--ink),transparent)}
+.track{display:flex;gap:14px;width:max-content;animation:slide 70s linear infinite}
+.track.rev{animation-direction:reverse;animation-duration:84s}
+.marquee:hover .track{animation-play-state:paused}
+.track img{height:300px;aspect-ratio:4/5;object-fit:cover;border-radius:18px;flex:0 0 auto;cursor:zoom-in;transition:transform .4s;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.track img:hover{transform:translateY(-6px) scale(1.02)}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (max-width:760px){.track img{height:210px}.marquee::before,.marquee::after{width:40px}}
+.moments .more{text-align:center;margin-top:40px}
+#momentsGrid{display:none;margin-top:36px;grid-template-columns:repeat(6,1fr);gap:10px}
+#momentsGrid.open{display:grid}
+#momentsGrid img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:14px;cursor:zoom-in}
+@media (max-width:900px){#momentsGrid{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:560px){#momentsGrid{grid-template-columns:repeat(3,1fr);gap:6px}}
+.moments .count{display:flex;gap:28px;flex-wrap:wrap;margin-top:28px}
+.moments .count div{font-size:13px;color:rgba(255,255,255,.6)}
+.moments .count b{display:block;font-size:30px;color:#fff;letter-spacing:-.02em;font-weight:700}
+.moments .count b em{font-style:normal;color:var(--warm2)}
 
 /* feelings (personas) */
 .feel{background:#fff}
@@ -275,6 +309,7 @@ footer a{text-decoration:underline;text-underline-offset:3px}
     <ul id="gnb">
       <li><a href="#facility">시설</a></li>
       <li><a href="#feel">이런 마음이라면</a></li>
+      <li><a href="#moments">함께한 순간</a></li>
       <li><a href="#safety">여성 안심</a></li>
       <li><a href="#qna">질문창고</a></li>
       <li><a href="#coaches">코치진</a></li>
@@ -290,8 +325,8 @@ footer a{text-decoration:underline;text-underline-offset:3px}
   <img src="img/hero_entrance.jpg" alt="베네피트니스 입구 아치 너머로 보이는 운동 공간">
   <div class="wrap">
     <span class="label">내포신도시 · 7층 전층 · 약 700평</span>
-    <h1>좋은 공간에서 시작해야<br><em>오래</em> 갑니다.</h1>
-    <p>운동이 끊기는 건 의지가 약해서가 아니에요. 어색하고, 눈치 보이고, 쉴 곳이 없어서예요. 그래서 우리는 시선이 닿지 않는 구획, 기다리지 않는 기구, 운동 후 숨을 고를 수 있는 라운지부터 만들었습니다. 처음이어도, 오래 쉬었어도 괜찮은 곳이 되고 싶어서요.</p>
+    <h1>처음이라 망설이는<br>분들을 위해</h1>
+    <p class="hero-lines">시선이 덜 닿도록 공간을 분리했습니다.<br>부담되지 않게 조명을 은은하게 낮췄습니다.<br>운동 후 잠시 숨을 고를 수 있는 라운지도 준비돼 있습니다.<br><span class="hl">여기는 나이가 많아도, 근력이 없어도 눈치 보지 않고<br>내 속도대로 시작해도 괜찮은 곳입니다.</span></p>
     <div class="actions">
       <a class="btn warm" href="#facility">공간 먼저 둘러보기</a>
       <a class="btn soft" href="#feel">이런 마음이라면</a>
@@ -338,104 +373,104 @@ footer a{text-decoration:underline;text-underline-offset:3px}
 
     <div id="facility-detail">
       <div class="zone">
-        <div class="zone-photos"><img class="wide" src="img/reception_gym.jpg" onclick="lb(this.src)" alt=""><img src="img/hero_entrance.jpg" onclick="lb(this.src)" alt=""><img src="img/reception_desk.jpg" onclick="lb(this.src)" alt=""></div>
+        <div class="zone-photos"><img class="wide" src="img/reception_gym.jpg" onclick="lb(this.src)" alt=""><img src="img/hero_entrance.jpg" onclick="lb(this.src)" alt=""><img src="img/reception_desk.jpg" onclick="lb(this.src)" alt=""><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
         <div class="zone-text"><span class="tag">ENTRANCE</span><h3>안면인식 입장 시스템</h3>
           <p>카드를 찾느라 가방을 뒤지거나, 앱을 켜고 기다릴 필요가 없어요. 얼굴 인식만으로 바로 들어옵니다.</p>
           <ul><li>분실·대여·도용 걱정 없이, 회원 본인만 입장</li><li>출입 기록이 자동으로 남아 투명하고 공정하게</li><li>출근 전, 퇴근 후에도 기다림 없이 빠르게</li><li>비대면·비접촉, 위생적이고 스트레스 없는 환경</li></ul>
         </div>
       </div>
       <div class="zone">
-        <div class="zone-photos"><img class="wide" src="img/lounge_wide.jpg" onclick="lb(this.src)" alt=""><img src="img/lounge_bar.jpg" onclick="lb(this.src)" alt=""><img src="img/lounge_plant.jpg" onclick="lb(this.src)" alt=""></div>
+        <div class="zone-photos"><img class="wide" src="img/lounge_wide.jpg" onclick="lb(this.src)" alt=""><img src="img/lounge_bar.jpg" onclick="lb(this.src)" alt=""><img src="img/lounge_plant.jpg" onclick="lb(this.src)" alt=""><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
         <div class="zone-text"><span class="tag">LOUNGE</span><h3>프리미엄 라운지</h3>
           <p>헬스장이 꼭 투박해야 할 이유는 없죠. 라운지는 운동과 일상 사이를 부드럽게 이어주는 센터의 중심이에요. 운동 전에는 마음을 정돈하는 자리로, 운동 후에는 소모된 에너지를 천천히 되찾는 자리로 써 주세요.</p>
           <div class="chips"><span>독서 &amp; 업무</span><span>네트워킹</span><span>휴식 / 힐링</span></div>
         </div>
       </div>
       <div class="zone">
-        <div class="zone-photos"><img class="wide" src="img/eat_5.jpg" onclick="lb(this.src)" alt=""><img src="img/eat_2.jpg" onclick="lb(this.src)" alt=""><img src="img/eat_4.jpg" onclick="lb(this.src)" alt=""></div>
+        <div class="zone-photos"><img class="wide" src="img/eat_5.jpg" onclick="lb(this.src)" alt=""><img src="img/eat_2.jpg" onclick="lb(this.src)" alt=""><img src="img/eat_4.jpg" onclick="lb(this.src)" alt=""><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
         <div class="zone-text"><span class="tag">BENEFIT LOUNGE</span><h3>휴게 라운지 · 취식공간</h3>
           <p>운동 끝나고 뭘 먹을지 고민하지 않아도 돼요. 무인 자판기에서 닭가슴살, 볶음밥, 프로틴 음료를 골라 그 자리에서 바로 드실 수 있어요. 식단까지 함께 챙기는 베네피트니스만의 공간입니다.</p>
           <div class="chips"><span>제빙기</span><span>무인 자판기</span><span>다이어트 식단</span><span>싱크대 · 전자레인지</span></div>
         </div>
       </div>
       <div class="zone">
-        <div class="zone-photos"><img class="wide" src="img/card_weight.jpg" onclick="lb(this.src)" alt=""><img src="img/zones_10.jpg" onclick="lb(this.src)" alt="" style="grid-column:span 2;height:auto"></div>
+        <div class="zone-photos"><img class="wide" src="img/card_weight.jpg" onclick="lb(this.src)" alt=""><img src="img/zones_10.jpg" onclick="lb(this.src)" alt="" style="grid-column:span 2;height:auto"><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
         <div class="zone-text"><span class="tag">WEIGHT ZONE</span><h3>구획별로 나뉜 운동 공간</h3>
           <p>개방된 공간이 주는 위압감을 없앴어요. 남의 시선이 부담스러운 입문자를 위해 로비 웨이트존, 3대 운동존, 덤벨존, 웨이트존 1·2로 공간을 나눴습니다.</p>
           <ul><li><b>프리미엄 외산기구</b> 100종 이상, 여러 브랜드를 한곳에서</li><li><b>웨이팅 없는 헬스장</b> 자주 쓰는 기구는 4대씩</li><li><b>7F 프리미엄 뷰</b> 내포 최상층</li><li><b>운동 공간 내 흡연실</b> 중간에 흐름을 끊지 않아도</li><li><b>무료 주차장</b> B1·B2, 주차 걱정 없이</li></ul>
         </div>
       </div>
       <div class="zone">
-        <div class="zone-photos"><img class="wide" src="img/cardio_1.jpg" onclick="lb(this.src)" alt=""><img src="img/cardio_3.jpg" onclick="lb(this.src)" alt=""><img src="img/cardio_2.jpg" onclick="lb(this.src)" alt=""></div>
+        <div class="zone-photos"><img class="wide" src="img/cardio_1.jpg" onclick="lb(this.src)" alt=""><img src="img/cardio_3.jpg" onclick="lb(this.src)" alt=""><img src="img/cardio_2.jpg" onclick="lb(this.src)" alt=""><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
         <div class="zone-text"><span class="tag">CARDIO · HYROX</span><h3>프라이빗 유산소존</h3>
           <p>8가지 서킷 트레이닝이 가능한 하이록스 존. 워치를 차고 운동하면 마일리지가 쌓이고, 실제 현금처럼 쓸 수 있어요. 지루하던 유산소가 조금은 재미있어집니다.</p>
           <div class="chips"><span>하이록스</span><span>마일리지</span><span>러닝머신 · 천국의계단</span></div>
         </div>
       </div>
       <div class="zone">
-        <div class="zone-photos"><img class="wide" src="img/stretch_1.jpg" onclick="lb(this.src)" alt=""><img src="img/stretch_2.jpg" onclick="lb(this.src)" alt=""><img src="img/card_stretch.jpg" onclick="lb(this.src)" alt=""></div>
+        <div class="zone-photos"><img class="wide" src="img/stretch_1.jpg" onclick="lb(this.src)" alt=""><img src="img/stretch_2.jpg" onclick="lb(this.src)" alt=""><img src="img/card_stretch.jpg" onclick="lb(this.src)" alt=""><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
         <div class="zone-text"><span class="tag">STRETCHING</span><h3>프라이빗 스트레칭 존</h3>
           <p>남 눈치 보며 스트레칭하지 않아도 돼요. 파티션으로 나뉜 칸, 자세를 볼 수 있는 천장 거울, 오운완 사진용 링라이트까지. 몸을 풀고 마음도 푸는 자리예요.</p>
           <div class="chips"><span>천장 거울</span><span>링 라이트</span><span>파티션 분리</span></div>
         </div>
       </div>
       <div class="zone">
-        <div class="zone-photos"><img class="wide" src="img/card_massage.jpg" onclick="lb(this.src)" alt=""></div>
+        <div class="zone-photos"><img class="wide" src="img/card_massage.jpg" onclick="lb(this.src)" alt=""><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
         <div class="zone-text"><span class="tag">RECOVERY</span><h3>프리미엄 안마존</h3>
           <p>바디프랜드 최상위 라인. 근육을 키우는 시간만큼 몸을 회복시키는 시간도 소중하니까요. 운동을 오래, 안전하게, 지속할 수 있는 공간을 지향합니다.</p>
           <div class="chips"><span>블루투스 사운드</span><span>온열 기능</span><span>무중력 모드</span></div>
         </div>
       </div>
       <div class="zone">
-        <div class="zone-photos"><img class="wide" src="img/card_posing.jpg" onclick="lb(this.src)" alt=""></div>
+        <div class="zone-photos"><img class="wide" src="img/card_posing.jpg" onclick="lb(this.src)" alt=""><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
         <div class="zone-text"><span class="tag">POSING ROOM</span><h3>프라이빗 포징룸</h3>
           <p>운동 후 몸의 변화를 혼자 조용히 살펴볼 수 있도록 전·후면 거울과 조명을 두었어요. 친구나 연인과 인증샷을 남기는 포토존으로도 좋아요.</p>
           <div class="chips"><span>전·후면 거울</span><span>인증샷 포토존</span><span>전·후면 조명</span></div>
         </div>
       </div>
       <div class="zone">
-        <div class="zone-photos"><img class="wide" src="img/card_pain.jpg" onclick="lb(this.src)" alt=""></div>
+        <div class="zone-photos"><img class="wide" src="img/card_pain.jpg" onclick="lb(this.src)" alt=""><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
         <div class="zone-text"><span class="tag">THERAPY ROOM</span><h3>베네핏 통증관리룸</h3>
           <p>아파서 운동이 어려우신가요? 치료사 면허와 실제 병원 근무 이력을 가진 트레이너가 직접 운용하는, 원인 중심의 통증 관리 공간이에요.</p>
           <ul><li>병원 치료 후 일상과 운동으로 안전하게 돌아오고 싶은 분</li><li>반복되는 통증의 근본 원인을 찾고 싶은 분</li><li>마사지·찜질로는 해결되지 않던 만성 통증을 관리하고 싶은 분</li><li>운동이 필요한 건 알지만 어디서부터 시작할지 막막한 분</li></ul>
         </div>
       </div>
       <div class="zone">
-        <div class="zone-photos"><img class="wide" src="img/card_tanning.jpg" onclick="lb(this.src)" alt=""></div>
+        <div class="zone-photos"><img class="wide" src="img/card_tanning.jpg" onclick="lb(this.src)" alt=""><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
         <div class="zone-text"><span class="tag">TANNING</span><h3>프리미엄 태닝존</h3>
           <p>국내외 최상위 라인 고출력 태닝기기. 바디프로필과 시합 준비의 필수 코스를 운동 후 한 번에 끝낼 수 있어요.</p>
           <div class="chips"><span>슬라이딩 터치도어</span><span>3단계 자외선 강도조절</span><span>쿨링 시스템</span><span>저주파 EMS 풋플레이트</span></div>
         </div>
       </div>
       <div class="zone">
-        <div class="zone-photos"><img class="wide" src="img/card_shower.jpg" onclick="lb(this.src)" alt=""><img src="img/locker_wall.jpg" onclick="lb(this.src)" alt="" style="grid-column:span 2"></div>
+        <div class="zone-photos"><img class="wide" src="img/card_shower.jpg" onclick="lb(this.src)" alt=""><img src="img/locker_wall.jpg" onclick="lb(this.src)" alt="" style="grid-column:span 2"><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
         <div class="zone-text"><span class="tag">LOCKER · SHOWER</span><h3>최대규모 탈의실 · 샤워실</h3>
           <p>피크 시간에도 기다리지 않고, 넓고 쾌적해서 다른 회원과 부딪힐 일이 없어요. 불법촬영 탐지 전문업체의 정기 점검을 받습니다.</p>
           <div class="chips"><span>웨이팅 없는 샤워부스</span><span>여성 안전 점검</span><span>넉넉한 공용락커</span></div>
         </div>
       </div>
       <div class="zone">
-        <div class="zone-photos"><img class="wide" src="img/card_air.jpg" onclick="lb(this.src)" alt=""></div>
+        <div class="zone-photos"><img class="wide" src="img/card_air.jpg" onclick="lb(this.src)" alt=""><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
         <div class="zone-text"><span class="tag">AIR</span><h3>향균 공기청정기 상시 가동</h3>
           <p>코웨이 최상위 레벨 공기청정기가 구역별로 24시간 돌아갑니다. 숨이 가빠지는 순간에도 공기만큼은 깨끗하게.</p>
           <div class="chips"><span>에어클린 향균 필터</span><span>4면 흡입 360도 청정</span></div>
         </div>
       </div>
       <div class="zone">
-        <div class="zone-photos"><img class="wide" src="img/card_app.jpg" onclick="lb(this.src)" alt=""></div>
+        <div class="zone-photos"><img class="wide" src="img/card_app.jpg" onclick="lb(this.src)" alt=""><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
         <div class="zone-text"><span class="tag">PT SYSTEM</span><h3>앱으로 관리되는 PT</h3>
           <p>센터가 비용을 부담하는 전용 앱으로 모든 수업이 기록돼요. 회원님께 추가 비용은 없습니다.</p>
           <ul><li>수업 일지 전용 피드, 카톡이 밀려도 운동 기록은 그대로</li><li>남은 횟수와 기간을 홈 화면에서 바로 확인</li><li>앱 안에서 선생님과 바로 대화</li><li>식단 사진만 올리면 AI가 칼로리를 분석</li></ul>
         </div>
       </div>
       <div class="zone">
-        <div class="zone-photos"><img class="wide" src="img/parking.jpg" onclick="lb(this.src)" alt=""><img src="img/exterior_1.jpg" onclick="lb(this.src)" alt=""><img src="img/exterior_3.jpg" onclick="lb(this.src)" alt=""></div>
+        <div class="zone-photos"><img class="wide" src="img/parking.jpg" onclick="lb(this.src)" alt=""><img src="img/exterior_1.jpg" onclick="lb(this.src)" alt=""><img src="img/exterior_3.jpg" onclick="lb(this.src)" alt=""><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
         <div class="zone-text"><span class="tag">PARKING · ACCESS</span><h3>넓은 무료 주차장 · 7층 입구</h3>
           <p>에드가프라자 1차 지하 1·2층 종일 무료, 건물 앞 무료 공영주차장. 엘리베이터로 7층에 오르면 자동문 입구가 바로 보여요.</p>
         </div>
       </div>
       <div class="card-strip">
-        <h3>시설 안내 카드 모아보기</h3>
+        <h3>시설 안내 카드 모아보기</h3><div class="tap">⤢ 옆으로 넘기고, 카드를 누르면 크게 볼 수 있어요</div>
         <div class="row">
           <img src="img/card_intro.jpg" onclick="lb(this.src)" alt=""><img src="img/card_face.jpg" onclick="lb(this.src)" alt=""><img src="img/card_lounge.jpg" onclick="lb(this.src)" alt=""><img src="img/card_eat.jpg" onclick="lb(this.src)" alt=""><img src="img/card_weight.jpg" onclick="lb(this.src)" alt=""><img src="img/card_hyrox.jpg" onclick="lb(this.src)" alt=""><img src="img/card_stretch.jpg" onclick="lb(this.src)" alt=""><img src="img/card_massage.jpg" onclick="lb(this.src)" alt=""><img src="img/card_posing.jpg" onclick="lb(this.src)" alt=""><img src="img/card_pain.jpg" onclick="lb(this.src)" alt=""><img src="img/card_tanning.jpg" onclick="lb(this.src)" alt=""><img src="img/card_shower.jpg" onclick="lb(this.src)" alt=""><img src="img/card_air.jpg" onclick="lb(this.src)" alt=""><img src="img/card_app.jpg" onclick="lb(this.src)" alt="">
         </div>
@@ -503,6 +538,24 @@ footer a{text-decoration:underline;text-underline-offset:3px}
         <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn warm" href="https://m.booking.naver.com/booking/6/bizes/563071/items/4032576" target="_blank" rel="noopener">편하게 상담 예약</a><a class="btn soft" href="#qna">질문창고 먼저 보기</a></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- MOMENTS -->
+<section class="moments" id="moments">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="label">MOMENTS</span>
+      <h2>백 번 설명보다,<br><em>함께 웃은 사진 한 장.</em></h2>
+      <p class="lead">수업이 끝나면 선생님과 거울 앞에서 한 장씩 남깁니다. 처음 온 날의 긴장이 이 표정으로 바뀝니다. 전부 내포점에서 실제 회원님과 찍은 사진이에요.</p>
+      <div class="count"><div><b>28<em>+</em></b>지금까지 모인 순간</div><div><b>매주</b>새로 추가되는 중</div><div><b>100%</b>동의받은 사진만</div></div>
+    </div>
+    <div class="marquee">
+      <div class="track" id="trackA"></div>
+      <div class="track rev" id="trackB"></div>
+    </div>
+    <div class="more"><button class="btn soft" id="momentsBtn" onclick="toggleMoments()">28장 한 번에 보기</button></div>
+    <div id="momentsGrid"></div>
   </div>
 </section>
 
@@ -753,17 +806,7 @@ footer a{text-decoration:underline;text-underline-offset:3px}
           <div class="links"><a href="https://www.instagram.com/reel/DTmluRsj1ft/" target="_blank" rel="noopener">코칭 사례</a></div>
         </div>
       </div>
-      <div class="coach reveal">
-        <div class="ph"><span class="init">박</span><img src="img/coach_parkjinju.jpg" alt="" onerror="this.remove()"><span class="role">트레이너 · 바디 메이킹</span></div>
-        <div class="body">
-          <h3>박진주</h3>
-          <div class="line">“무작정 빼는 운동 말고, 예쁘게 오래 유지되는 몸”</div>
-          <ul class="creds"><li>여성·남성 불문 다수 회원 지도</li><li>Before &amp; After 다수</li><li>지속 가능한 운동 습관 만들기</li></ul>
-          <div class="fit"><b>이런 분과 잘 맞아요</b>체중 숫자보다 라인을 만들고 싶은 분, 2:1 수업을 원하는 분, 꾸준히 유지되는 몸을 원하는 분</div>
-          <div class="links"><a href="https://www.instagram.com/benefitness0525/" target="_blank" rel="noopener">Instagram</a></div>
-        </div>
-      </div>
-    </div>
+          </div>
     <p class="note">* 자격·경력은 각 선생님이 공개한 소개 자료를 기준으로 정리했어요. 담당 배정은 상담 시 일정에 따라 안내드립니다.</p>
   </div>
 </section>
@@ -860,6 +903,14 @@ function toggleFacility(){
   if(open){ d.scrollIntoView({behavior:'smooth',block:'start'}); }
 }
 function lb(src){ document.getElementById('lbimg').src=src; document.getElementById('lb').classList.add('open'); }
+(function(){
+  var N=28, list=[]; for(var i=1;i<=N;i++){ list.push('img/members/m'+String(i).padStart(2,'0')+'.jpg'); }
+  var a=list.slice(0,14), b=list.slice(14);
+  function fill(id, arr){ var el=document.getElementById(id); var html=''; arr.concat(arr).forEach(function(s){ html+='<img src="'+s+'" alt="회원님과 함께" loading="lazy" onclick="lb(this.src)">'; }); el.innerHTML=html; }
+  fill('trackA', a); fill('trackB', b);
+  var g=document.getElementById('momentsGrid'); g.innerHTML=list.map(function(s){return '<img src="'+s+'" alt="회원님과 함께" loading="lazy" onclick="lb(this.src)">'}).join('');
+})();
+function toggleMoments(){ var g=document.getElementById('momentsGrid'); var b=document.getElementById('momentsBtn'); g.classList.toggle('open'); b.textContent=g.classList.contains('open')?'접기':'28장 한 번에 보기'; }
 document.querySelectorAll('#storyFilter button').forEach(function(btn){
   btn.addEventListener('click',function(){
     document.querySelectorAll('#storyFilter button').forEach(function(x){x.classList.remove('on')}); btn.classList.add('on');
