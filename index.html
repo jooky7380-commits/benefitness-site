@@ -251,9 +251,9 @@ section[id]{scroll-margin-top:var(--header-offset)}
 
 /* stories */
 .stories{background:var(--bg)}
-.kw{display:flex;gap:10px;flex-wrap:wrap;margin-top:36px}
-.kw span{background:var(--card);border-radius:16px;padding:14px 18px;font-size:13px;color:var(--ink2);box-shadow:var(--shadow)}
-.kw span b{display:block;font-size:22px;color:var(--ink);letter-spacing:-.02em}
+.kw{display:flex;gap:6px;flex-wrap:wrap;margin-top:22px}
+.kw span{display:inline-flex;align-items:baseline;gap:5px;background:transparent;border:1px solid rgba(29,29,31,.12);border-radius:999px;padding:5px 12px;font-size:12.5px;color:var(--ink3);box-shadow:none;line-height:1.4}
+.kw span b{display:inline;font-size:13px;font-weight:600;color:var(--ink2);letter-spacing:-.01em}
 .story-filter{display:flex;gap:8px;flex-wrap:wrap;margin-top:40px}
 .story-filter button{border:1px solid var(--line);background:var(--card);padding:9px 16px;border-radius:999px;font-weight:600;font-size:14px;cursor:pointer;color:var(--ink2);transition:.2s}
 .story-filter button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
@@ -379,16 +379,19 @@ body.zs-lock{overflow:hidden}
   <div class="wrap">
     <div class="center reveal">
       <span class="label">FACILITY</span>
-      <h2>공간이 사람을 머물게 합니다.</h2>
-<p class="lead">내포신도시에서 헬스장이나 피티샵을 찾고 계신가요? 베네피트니스 내포점은 예산군 삽교읍에 있는 헬스·퍼스널트레이닝 공간입니다. 시설과 코치 소개를 둘러보고, 운동 경험과 목표에 맞는 상담을 네이버로 예약해 주세요.</p>
-      <p class="lead">전부 내포점의 실제 공간이에요. 보이지 않게, 기다리지 않게, 쉬어 갈 수 있게 만들었습니다.</p>
+      <h2>공간이 사람을<br>머물게 합니다.</h2>
+<p class="lead">운동을 시작하고 싶은데 어디서부터 시작해야 할지 고민이신가요? 베네피트니스는 운동이 처음인 분들도 부담 없이 시작하고, 꾸준히 운동해 온 분들도 자신의 목표에 집중할 수 있는 헬스·PT 공간입니다.</p>
+      <p class="lead">좋은 운동 습관을 만드는 첫걸음, 베네피트니스에서 시작해 보세요. 시설과 트레이너 소개를 확인하시고, 네이버 예약을 통해 편하게 상담받아 보세요.</p>
     </div>
 
     <div class="fac-grid">
       <div class="fac-item big reveal" role="button" tabindex="0" onclick="openZone('img/reception_gym.jpg')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openZone('img/reception_gym.jpg')}"><img src="img/reception_gym.jpg" alt="" loading="lazy" decoding="async"><span class="tag">◍ 안심할 수 있게</span><div class="cap"><b>안면인식 입장</b><span>카드도 앱도 없이, 얼굴만 보여주면 열립니다</span></div></div>
       <div class="fac-item big reveal" role="button" tabindex="0" onclick="openZone('img/lounge_wide.jpg')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openZone('img/lounge_wide.jpg')}"><img src="img/lounge_wide.jpg" alt="" loading="lazy" decoding="async"><span class="tag">◌ 쉬어 갈 수 있게</span><div class="cap"><b>프리미엄 라운지</b><span>운동 전 마음을 정돈하고, 운동 후 회복하는 자리</span></div></div>
+      <div class="fac-item reveal" role="button" tabindex="0" onclick="openZone('img/weight_1.jpg')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openZone('img/weight_1.jpg')}"><img src="img/weight_1.jpg" alt="" loading="lazy" decoding="async"><span class="tag">◐ 보이지 않게</span><div class="cap"><b>구획별 웨이트존</b><span>100종 이상 외산기구, 10개 구획으로 나눈 공간</span></div></div>
       <div class="fac-item reveal" role="button" tabindex="0" onclick="openZone('img/cardio_1.jpg')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openZone('img/cardio_1.jpg')}"><img src="img/cardio_1.jpg" alt="" loading="lazy" decoding="async"><span class="tag">◷ 기다리지 않게</span><div class="cap"><b>유산소존 · 하이록스</b><span>8가지 서킷, 마일리지가 쌓이는 유산소</span></div></div>
       <div class="fac-item reveal" role="button" tabindex="0" onclick="openZone('img/stretch_1.jpg')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openZone('img/stretch_1.jpg')}"><img src="img/stretch_1.jpg" alt="" loading="lazy" decoding="async"><span class="tag">◐ 보이지 않게</span><div class="cap"><b>프라이빗 스트레칭 존</b><span>파티션 · 천장 거울 · 링라이트</span></div></div>
+      <div class="fac-item reveal" role="button" tabindex="0" onclick="openZone('img/massage_1.jpg')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openZone('img/massage_1.jpg')}"><img src="img/massage_1.jpg" alt="" loading="lazy" decoding="async"><span class="tag">◌ 쉬어 갈 수 있게</span><div class="cap"><b>프리미엄 안마존</b><span>바디프랜드 최상위 라인 · 무중력 모드</span></div></div>
+      <div class="fac-item reveal" role="button" tabindex="0" onclick="openZone('img/posing_1.jpg')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openZone('img/posing_1.jpg')}"><img src="img/posing_1.jpg" alt="" loading="lazy" decoding="async"><span class="tag">◐ 보이지 않게</span><div class="cap"><b>프라이빗 포징룸 · 포토존</b><span>전·후면 거울과 조명, 인증샷 포토존</span></div></div>
       <div class="fac-item reveal" role="button" tabindex="0" onclick="openZone('img/eat_5.jpg')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openZone('img/eat_5.jpg')}"><img src="img/eat_5.jpg" alt="" loading="lazy" decoding="async"><span class="tag">◌ 쉬어 갈 수 있게</span><div class="cap"><b>휴게 라운지 · 취식공간</b><span>자판기 식단 · 제빙기 · 전자레인지</span></div></div>
     </div>
 
@@ -424,7 +427,7 @@ body.zs-lock{overflow:hidden}
         </div>
       </div>
       <div class="zone">
-        <div class="zone-photos"><img class="wide" src="img/card_weight.jpg" onclick="lb(this.src)" alt="" loading="lazy" decoding="async"><img src="img/zones_10.jpg?v=3" onclick="lb(this.src)" alt="" style="grid-column:span 2;height:auto" loading="lazy" decoding="async"><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
+        <div class="zone-photos"><img class="wide" src="img/weight_1.jpg" onclick="lb(this.src)" alt="" loading="lazy" decoding="async"><img src="img/weight_2.jpg" onclick="lb(this.src)" alt="" loading="lazy" decoding="async"><img src="img/weight_3.jpg" onclick="lb(this.src)" alt="" loading="lazy" decoding="async"><img src="img/zones_10.jpg?v=3" onclick="lb(this.src)" alt="" style="grid-column:span 2;height:auto" loading="lazy" decoding="async"><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
         <div class="zone-text"><span class="tag">WEIGHT ZONE</span><h3>구획별로 나뉜 운동 공간</h3>
           <p>개방된 공간이 주는 위압감을 없앴어요. 남의 시선이 부담스러운 입문자를 위해 로비 웨이트존, 3대 운동존, 덤벨존, 웨이트존 1·2로 공간을 나눴습니다.</p>
           <ul><li><b>프리미엄 외산기구</b> 100종 이상, 여러 브랜드를 한곳에서</li><li><b>웨이팅 없는 헬스장</b> 자주 쓰는 기구는 4대씩</li><li><b>7F 프리미엄 뷰</b> 내포 최상층</li><li><b>운동 공간 내 흡연실</b> 중간에 흐름을 끊지 않아도</li><li><b>무료 주차장</b> B1·B2, 주차 걱정 없이</li></ul>
@@ -445,14 +448,14 @@ body.zs-lock{overflow:hidden}
         </div>
       </div>
       <div class="zone">
-        <div class="zone-photos"><img class="wide" src="img/card_massage.jpg" onclick="lb(this.src)" alt="" loading="lazy" decoding="async"><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
+        <div class="zone-photos"><img class="wide" src="img/massage_1.jpg" onclick="lb(this.src)" alt="" loading="lazy" decoding="async"><img src="img/massage_2.jpg" onclick="lb(this.src)" alt="" loading="lazy" decoding="async"><img src="img/massage_3.jpg" onclick="lb(this.src)" alt="" loading="lazy" decoding="async"><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
         <div class="zone-text"><span class="tag">RECOVERY</span><h3>프리미엄 안마존</h3>
           <p>바디프랜드 최상위 라인. 근육을 키우는 시간만큼 몸을 회복시키는 시간도 소중하니까요. 운동을 오래, 안전하게, 지속할 수 있는 공간을 지향합니다.</p>
           <div class="chips"><span>블루투스 사운드</span><span>온열 기능</span><span>무중력 모드</span></div>
         </div>
       </div>
       <div class="zone">
-        <div class="zone-photos"><img class="wide" src="img/card_posing.jpg" onclick="lb(this.src)" alt="" loading="lazy" decoding="async"><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
+        <div class="zone-photos"><img class="wide" src="img/posing_1.jpg" onclick="lb(this.src)" alt="" loading="lazy" decoding="async"><img src="img/posing_2.jpg" onclick="lb(this.src)" alt="" loading="lazy" decoding="async"><img src="img/posing_3.jpg" onclick="lb(this.src)" alt="" loading="lazy" decoding="async"><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
         <div class="zone-text"><span class="tag">POSING ROOM</span><h3>프라이빗 포징룸</h3>
           <p>운동 후 몸의 변화를 혼자 조용히 살펴볼 수 있도록 전·후면 거울과 조명을 두었어요. 친구나 연인과 인증샷을 남기는 포토존으로도 좋아요.</p>
           <div class="chips"><span>전·후면 거울</span><span>인증샷 포토존</span><span>전·후면 조명</span></div>
