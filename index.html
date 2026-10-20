@@ -52,16 +52,20 @@ h2{font-size:clamp(32px,4.6vw,54px);font-weight:700}
 .reveal.in{opacity:1;transform:none}
 
 /* header */
-header{position:sticky;top:0;z-index:60;background:rgba(251,250,247,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;letter-spacing:-.02em}
+:root{--header-offset:130px}
+header{position:sticky;top:0;z-index:60;background:rgba(251,250,247,.96);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;letter-spacing:-.02em;white-space:nowrap}
 .logo i{display:grid;place-items:center;width:28px;height:28px;border-radius:9px;background:var(--ink);color:var(--warm2);font-style:normal;font-size:11px;font-weight:800}
 .logo small{font-weight:500;color:var(--ink3);font-size:13px}
-.nav ul{display:flex;gap:28px;list-style:none;font-size:14px;font-weight:500;color:var(--ink2)}
-.nav ul a:hover{color:var(--ink)}
-.menu-btn{display:none;background:none;border:0;font-size:22px;cursor:pointer}
-@media (max-width:900px){.nav ul{display:none}.menu-btn{display:block}.nav .cta{display:none}
- .nav ul.open{display:flex;position:absolute;left:0;right:0;top:60px;background:var(--bg);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--line);font-size:16px}}
+.section-nav{border-top:1px solid var(--line)}
+#gnb{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));list-style:none;gap:4px;padding:6px 0}
+#gnb a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:8px 4px;border-radius:10px;color:var(--ink2);font-size:13px;font-weight:600;white-space:nowrap}
+#gnb a:hover{background:var(--bg2);color:var(--ink)}
+#gnb a[aria-current="location"]{background:var(--warmbg);color:#805215;box-shadow:inset 0 0 0 1px rgba(233,162,59,.35)}
+#gnb a:focus-visible{outline:3px solid var(--warm);outline-offset:-3px}
+section[id]{scroll-margin-top:var(--header-offset)}
+@media(max-width:900px){:root{--header-offset:168px}.nav{height:52px}.nav.wrap{padding-left:16px;padding-right:16px}.nav .logo{font-size:15px;gap:7px}.nav .logo small{font-size:11px}.nav .cta{font-size:12px;padding:8px 12px}.section-nav .wrap{padding:0 8px}#gnb{grid-template-columns:repeat(5,minmax(0,1fr));gap:2px;padding:4px 0}#gnb a{font-size:12px;min-height:44px;padding:6px 2px}}
 
 /* hero */
 .hero{position:relative;min-height:92vh;display:grid;align-items:end;overflow:hidden;background:#111;color:#fff}
@@ -340,22 +344,9 @@ body.zs-lock{overflow:hidden}
 </head>
 <body>
 
-<header>
-  <div class="wrap nav">
-    <a class="logo" href="#top"><i>BN</i>베네피트니스 <small>내포점</small></a>
-    <button class="menu-btn" aria-label="메뉴" onclick="document.getElementById('gnb').classList.toggle('open')">☰</button>
-    <ul id="gnb">
-      <li><a href="#facility">시설</a></li>
-      <li><a href="#safety">여성 안심</a></li>
-      <li><a href="#moments">함께한 순간</a></li>
-      <li><a href="#coaches">코치진</a></li>
-      <li><a href="#stories">회원 이야기</a></li>
-      <li><a href="#qna">질문창고</a></li>
-      <li><a href="#feel">이런 마음이라면</a></li>
-      <li><a href="#price">가격·예약</a></li>
-    </ul>
-    <a class="btn ink sm cta" href="https://m.booking.naver.com/booking/6/bizes/563071/items/4032576" target="_blank" rel="noopener">상담 예약</a>
-  </div>
+<header id="siteHeader">
+  <div class="wrap nav"><a class="logo" href="#top"><i>BN</i>베네피트니스 <small>내포점</small></a><a class="btn ink sm cta" href="https://m.booking.naver.com/booking/6/bizes/563071/items/4032576" target="_blank" rel="noopener">상담 예약</a></div>
+  <nav class="section-nav" aria-label="섹션 바로가기"><div class="wrap"><ul id="gnb"><li><a href="#top" aria-current="location">처음으로</a></li><li><a href="#facility">공간안내</a></li><li><a href="#safety">여성안심</a></li><li><a href="#moments">회원사진</a></li><li><a href="#coaches">선생님</a></li><li><a href="#stories">회원후기</a></li><li><a href="#qna">질문창고</a></li><li><a href="#feel">시작고민</a></li><li><a href="#price">가격상담</a></li><li><a href="#start">시작하기</a></li></ul></div></nav>
 </header>
 
 <!-- HERO -->
@@ -913,7 +904,7 @@ body.zs-lock{overflow:hidden}
 </section>
 
 <!-- CLOSING -->
-<section class="closing">
+<section class="closing" id="start">
   <div class="wrap reveal">
     <h2>오늘 여기까지 읽으셨다면,<br>이미 시작하신 거예요.</h2>
     <p class="lead">문 앞에서 돌아서도 괜찮고, 일일권으로 하루만 써봐도 괜찮아요. 준비가 되는 날, 그때 오세요. 자리는 늘 있어요.</p>
@@ -1031,7 +1022,22 @@ function storyLayout(){
     if(closing)document.getElementById('feel').scrollIntoView({block:'start'});
   });
 })();
-document.querySelectorAll('#gnb a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('gnb').classList.remove('open')})});
+(function(){
+  var header=document.getElementById('siteHeader'),links=[].slice.call(document.querySelectorAll('#gnb a'));
+  var sections=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+  var pending=false;
+  function update(){
+    pending=false;var edge=header.getBoundingClientRect().height+24,index=0;
+    sections.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<=edge)index=i;});
+    if(window.scrollY>0&&window.scrollY+window.innerHeight>=document.documentElement.scrollHeight-3)index=links.length-1;
+    links.forEach(function(a,i){if(i===index)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});
+  }
+  function queue(){if(!pending){pending=true;requestAnimationFrame(update);}}
+  function measure(){document.documentElement.style.setProperty('--header-offset',(header.getBoundingClientRect().height+16)+'px');queue();}
+  if('ResizeObserver' in window)new ResizeObserver(measure).observe(header);
+  window.addEventListener('resize',measure);window.addEventListener('scroll',queue,{passive:true});
+  measure();
+})();
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.08});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 </script>
