@@ -318,6 +318,15 @@ body.zs-lock{overflow:hidden}
 .story-more button::after{content:" ↓"}
 .story-more button[aria-expanded="true"]::after{content:" ↑"}
 .story-more button:focus-visible{outline:3px solid var(--warm);outline-offset:3px}
+
+.coach-grid.collapsed .coach:nth-child(n+5){display:none}
+.coach-more{text-align:center;margin-top:26px}
+.coach-more button{border:1px solid var(--ink);background:var(--card);color:var(--ink);font-weight:700;font-size:15px;padding:13px 26px;border-radius:999px;cursor:pointer;min-height:48px;font-family:inherit}
+.coach-more button::after{content:" ↓"}
+.coach-more button[aria-expanded="true"]::after{content:" ↑"}
+.coach-more button:focus-visible{outline:3px solid var(--warm);outline-offset:3px}
+@media(max-width:1000px){.coach-grid.collapsed .coach:nth-child(n+3){display:none}}
+@media(max-width:600px){.coach-grid.collapsed .coach:nth-child(n+2){display:none}}
 </style>
 </head>
 <body>
@@ -541,7 +550,7 @@ body.zs-lock{overflow:hidden}
       <p class="lead">자격증보다 중요한 건 사람에 대한 이해라고 믿어요. 치료사 출신, 선수 출신, 체형교정 전문까지. 목적과 성향에 맞는 선생님을 고를 수 있고, 원하는 선생님이 있다면 상담 때 말씀해 주세요.</p>
     </div>
 
-    <div class="coach-grid">
+    <div class="coach-grid collapsed" id="coachGrid">
       <div class="coach reveal">
         <div class="ph"><span class="init">조</span><img src="img/coach_jogeonung.jpg" alt="" onerror="this.remove()" loading="lazy" decoding="async"><span class="role">대표 · 바디프로필 전문</span></div>
         <div class="body">
@@ -613,6 +622,7 @@ body.zs-lock{overflow:hidden}
         </div>
       </div>
           </div>
+    <div class="coach-more"><button type="button" id="coachMore" aria-controls="coachGrid" aria-expanded="false">선생님 더 보기</button></div>
     <p class="note">* 자격·경력은 각 선생님이 공개한 소개 자료를 기준으로 정리했어요. 담당 배정은 상담 시 일정에 따라 안내드립니다.</p>
   </div>
 </section>
@@ -990,6 +1000,16 @@ function storyLayout(){
     if(wasOpen){ document.getElementById('stories').scrollIntoView({block:'start'}); }
   });
   window.addEventListener('resize',storyLayout); storyLayout();
+})();
+(function(){
+  var grid=document.getElementById('coachGrid'),btn=document.getElementById('coachMore');
+  btn.addEventListener('click',function(){
+    var closing=!grid.classList.contains('collapsed');
+    grid.classList.toggle('collapsed');
+    btn.setAttribute('aria-expanded',String(!closing));
+    btn.textContent=closing?'선생님 더 보기':'선생님 소개 접기';
+    if(closing)document.getElementById('coaches').scrollIntoView({block:'start'});
+  });
 })();
 document.querySelectorAll('#gnb a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('gnb').classList.remove('open')})});
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.08});
