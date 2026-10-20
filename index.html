@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>베네피트니스 내포점 — 처음이어도, 오래 쉬었어도, 괜찮은 곳</title>
 <meta name="description" content="첫 PT가 고민이신 분, 운동이 처음이신 분, 눈치가 보여 미루고 계신 분을 위한 내포신도시 헬스장. 구획별로 나뉜 공간, 기다리지 않는 기구, 운동 후 쉬어갈 수 있는 곳.">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
 :root{
   --bg:#fbfaf7; --bg2:#f3f1ec; --card:#ffffff;
@@ -123,7 +122,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(251,250,247,.72);backdro
 .moments .label{color:var(--warm2)}
 .moments .lead{color:rgba(255,255,255,.72)}
 .moments h2 em{font-style:normal;color:var(--warm2)}
-.marquee{position:relative;margin-top:56px;display:grid;gap:14px}
+.marquee{position:relative;margin-top:56px;display:grid;gap:14px;min-height:614px}
 .marquee::before,.marquee::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
 .marquee::before{left:0;background:linear-gradient(90deg,var(--ink),transparent)}
 .marquee::after{right:0;background:linear-gradient(270deg,var(--ink),transparent)}
@@ -133,7 +132,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(251,250,247,.72);backdro
 .track img{height:300px;aspect-ratio:4/5;object-fit:cover;border-radius:18px;flex:0 0 auto;cursor:zoom-in;transition:transform .4s;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 .track img:hover{transform:translateY(-6px) scale(1.02)}
 @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (max-width:760px){.track img{height:210px}.marquee::before,.marquee::after{width:40px}}
+@media (max-width:760px){.marquee{min-height:434px}.track img{height:210px}.marquee::before,.marquee::after{width:40px}}
 .moments .count{display:flex;gap:28px;flex-wrap:wrap;margin-top:28px}
 .moments .count div{font-size:13px;color:rgba(255,255,255,.6)}
 .moments .count b{display:block;font-size:30px;color:#fff;letter-spacing:-.02em;font-weight:700}
@@ -381,7 +380,7 @@ footer a{text-decoration:underline;text-underline-offset:3px}
         </div>
       </div>
       <div class="zone">
-        <div class="zone-photos"><img class="wide" src="img/card_weight.jpg" onclick="lb(this.src)" alt="" loading="lazy" decoding="async"><img src="img/zones_10.jpg" onclick="lb(this.src)" alt="" style="grid-column:span 2;height:auto" loading="lazy" decoding="async"><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
+        <div class="zone-photos"><img class="wide" src="img/card_weight.jpg" onclick="lb(this.src)" alt="" loading="lazy" decoding="async"><img src="img/zones_10.jpg?v=3" onclick="lb(this.src)" alt="" style="grid-column:span 2;height:auto" loading="lazy" decoding="async"><div class="tap">사진을 누르면 잘리지 않은 전체 사진으로 볼 수 있어요</div></div>
         <div class="zone-text"><span class="tag">WEIGHT ZONE</span><h3>구획별로 나뉜 운동 공간</h3>
           <p>개방된 공간이 주는 위압감을 없앴어요. 남의 시선이 부담스러운 입문자를 위해 로비 웨이트존, 3대 운동존, 덤벨존, 웨이트존 1·2로 공간을 나눴습니다.</p>
           <ul><li><b>프리미엄 외산기구</b> 100종 이상, 여러 브랜드를 한곳에서</li><li><b>웨이팅 없는 헬스장</b> 자주 쓰는 기구는 4대씩</li><li><b>7F 프리미엄 뷰</b> 내포 최상층</li><li><b>운동 공간 내 흡연실</b> 중간에 흐름을 끊지 않아도</li><li><b>무료 주차장</b> B1·B2, 주차 걱정 없이</li></ul>
@@ -567,7 +566,7 @@ footer a{text-decoration:underline;text-underline-offset:3px}
           <div class="a">
             <p>그 마음을 알아서 공간을 나눴어요. 베네피트니스는 통으로 트인 헬스장이 아니라 <b>10개 구획으로 분리된 공간</b>이에요. 트인 공간은 시선이 모이기 쉬운데, 구획을 나누면 각자 자기 자리에서 조용히 운동하게 돼요. 스트레칭존도 파티션으로 가려져 있어요.</p>
             <p>그리고 솔직히 말씀드리면, 아무도 회원님을 보지 않아요. 다들 자기 운동하기 바쁘거든요. 오늘 여기까지 오신 것만으로도 충분히 용기 내신 거예요.</p>
-            <img src="img/zones_10.jpg" alt="10개의 구획으로 분리된 공간" loading="lazy" decoding="async">
+            <img src="img/zones_10.jpg?v=3" alt="10개의 구획으로 분리된 공간" loading="lazy" decoding="async">
           </div>
         </details>
         <details class="reveal">
@@ -906,7 +905,11 @@ document.addEventListener('keydown',function(e){ if(e.key==='Escape') lbClose();
   var N=78, list=[]; for(var i=1;i<=N;i++){ list.push('img/members/m'+String(i).padStart(2,'0')+'.jpg'); }
   var a=list.slice(0,39), b=list.slice(39);
   function fill(id, arr){ var el=document.getElementById(id); var html=''; arr.concat(arr).forEach(function(s){ html+='<img src="'+s+'" alt="회원님과 함께" loading="lazy" onclick="lb(this.src)" decoding="async">'; }); el.innerHTML=html; }
-  fill('trackA', a); fill('trackB', b);
+  function renderGallery(){ fill('trackA', a); fill('trackB', b); }
+  if('IntersectionObserver' in window){
+    var galleryObserver=new IntersectionObserver(function(entries){ if(entries[0].isIntersecting){ renderGallery(); galleryObserver.disconnect(); } },{rootMargin:'400px 0px'});
+    galleryObserver.observe(document.getElementById('moments'));
+  } else { renderGallery(); }
 })();
 document.querySelectorAll('#storyFilter button').forEach(function(btn){
   btn.addEventListener('click',function(){
