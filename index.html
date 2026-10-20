@@ -299,6 +299,17 @@ footer a{text-decoration:underline;text-underline-offset:3px}
 #lb.open{display:grid}
 #lb img{max-width:min(1100px,96vw);max-height:92vh;border-radius:16px}
 #lb span{position:absolute;top:18px;right:26px;color:#fff;font-size:34px;cursor:pointer;font-weight:300}
+
+#zs{position:fixed;inset:0;z-index:90;display:none;background:rgba(20,18,16,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);padding:32px 20px;overflow-y:auto;overscroll-behavior:contain}
+#zs.open{display:block}
+#zs .zs-panel{position:relative;max-width:980px;margin:0 auto;background:var(--bg);border-radius:28px;padding:56px 40px 40px;box-shadow:0 30px 80px rgba(0,0,0,.25)}
+#zs .zs-close{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(29,29,31,.08);color:var(--ink);font-size:26px;line-height:44px;cursor:pointer}
+#zs .zone{border-top:0;padding:0}
+#zs .zs-all{text-align:center;margin-top:28px;font-size:14px;color:var(--ink3)}
+#zs .zs-all button{background:none;border:0;color:var(--ink2);text-decoration:underline;cursor:pointer;font:inherit;padding:8px}
+body.zs-lock{overflow:hidden}
+@media (max-width:560px){#zs{padding:0}#zs .zs-panel{border-radius:0;min-height:100%;padding:60px 20px 32px}}
+.fac-item:focus-visible{outline:3px solid var(--warm);outline-offset:3px}
 </style>
 </head>
 <body>
@@ -352,11 +363,11 @@ footer a{text-decoration:underline;text-underline-offset:3px}
     </div>
 
     <div class="fac-grid">
-      <div class="fac-item big reveal" onclick="lb('img/reception_gym.jpg')"><img src="img/reception_gym.jpg" alt="" loading="lazy" decoding="async"><span class="tag">◍ 안심할 수 있게</span><div class="cap"><b>안면인식 입장</b><span>카드도 앱도 없이, 얼굴만 보여주면 열립니다</span></div></div>
-      <div class="fac-item big reveal" onclick="lb('img/lounge_wide.jpg')"><img src="img/lounge_wide.jpg" alt="" loading="lazy" decoding="async"><span class="tag">◌ 쉬어 갈 수 있게</span><div class="cap"><b>프리미엄 라운지</b><span>운동 전 마음을 정돈하고, 운동 후 회복하는 자리</span></div></div>
-      <div class="fac-item reveal" onclick="lb('img/cardio_1.jpg')"><img src="img/cardio_1.jpg" alt="" loading="lazy" decoding="async"><span class="tag">◷ 기다리지 않게</span><div class="cap"><b>유산소존 · 하이록스</b><span>8가지 서킷, 마일리지가 쌓이는 유산소</span></div></div>
-      <div class="fac-item reveal" onclick="lb('img/stretch_1.jpg')"><img src="img/stretch_1.jpg" alt="" loading="lazy" decoding="async"><span class="tag">◐ 보이지 않게</span><div class="cap"><b>프라이빗 스트레칭 존</b><span>파티션 · 천장 거울 · 링라이트</span></div></div>
-      <div class="fac-item reveal" onclick="lb('img/eat_5.jpg')"><img src="img/eat_5.jpg" alt="" loading="lazy" decoding="async"><span class="tag">◌ 쉬어 갈 수 있게</span><div class="cap"><b>휴게 라운지 · 취식공간</b><span>자판기 식단 · 제빙기 · 전자레인지</span></div></div>
+      <div class="fac-item big reveal" role="button" tabindex="0" onclick="openZone('img/reception_gym.jpg')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openZone('img/reception_gym.jpg')}"><img src="img/reception_gym.jpg" alt="" loading="lazy" decoding="async"><span class="tag">◍ 안심할 수 있게</span><div class="cap"><b>안면인식 입장</b><span>카드도 앱도 없이, 얼굴만 보여주면 열립니다</span></div></div>
+      <div class="fac-item big reveal" role="button" tabindex="0" onclick="openZone('img/lounge_wide.jpg')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openZone('img/lounge_wide.jpg')}"><img src="img/lounge_wide.jpg" alt="" loading="lazy" decoding="async"><span class="tag">◌ 쉬어 갈 수 있게</span><div class="cap"><b>프리미엄 라운지</b><span>운동 전 마음을 정돈하고, 운동 후 회복하는 자리</span></div></div>
+      <div class="fac-item reveal" role="button" tabindex="0" onclick="openZone('img/cardio_1.jpg')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openZone('img/cardio_1.jpg')}"><img src="img/cardio_1.jpg" alt="" loading="lazy" decoding="async"><span class="tag">◷ 기다리지 않게</span><div class="cap"><b>유산소존 · 하이록스</b><span>8가지 서킷, 마일리지가 쌓이는 유산소</span></div></div>
+      <div class="fac-item reveal" role="button" tabindex="0" onclick="openZone('img/stretch_1.jpg')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openZone('img/stretch_1.jpg')}"><img src="img/stretch_1.jpg" alt="" loading="lazy" decoding="async"><span class="tag">◐ 보이지 않게</span><div class="cap"><b>프라이빗 스트레칭 존</b><span>파티션 · 천장 거울 · 링라이트</span></div></div>
+      <div class="fac-item reveal" role="button" tabindex="0" onclick="openZone('img/eat_5.jpg')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openZone('img/eat_5.jpg')}"><img src="img/eat_5.jpg" alt="" loading="lazy" decoding="async"><span class="tag">◌ 쉬어 갈 수 있게</span><div class="cap"><b>휴게 라운지 · 취식공간</b><span>자판기 식단 · 제빙기 · 전자레인지</span></div></div>
     </div>
 
     <div class="why reveal">
@@ -650,7 +661,7 @@ footer a{text-decoration:underline;text-underline-offset:3px}
       </aside>
 
       <div class="acc">
-        <details open class="reveal">
+        <details class="reveal">
           <summary><span class="q">Q1</span>운동을 한 번도 안 해봐서 걱정돼요</summary>
           <div class="a">
             <p>그거 아세요? 헬스장에는 생각보다 <b>운동이 처음인 분들이 훨씬 많아요.</b> SNS에 자주 보이는 멋진 몸들은 사실 상위 1%예요. 그분들이 눈에 잘 띌 뿐이죠.</p>
@@ -888,6 +899,8 @@ footer a{text-decoration:underline;text-underline-offset:3px}
   </div>
 </footer>
 
+<div id="zs" role="dialog" aria-modal="true" aria-label="공간 상세 보기" onclick="if(event.target===this)zsClose()"><div class="zs-panel"><button class="zs-close" type="button" aria-label="닫기" onclick="zsClose()">×</button><div id="zsBody"></div><div class="zs-all"><button type="button" onclick="zsClose();setTimeout(function(){var d=document.getElementById('facility-detail');if(!d.classList.contains('open'))toggleFacility();else d.scrollIntoView({block:'start'});},60)">다른 공간도 모두 보기</button></div></div></div>
+
 <div id="lb" onclick="lbClose()"><span>×</span><img id="lbimg" src="" alt=""></div>
 
 <script>
@@ -901,17 +914,37 @@ function lb(src){
   document.getElementById('lbimg').src=src; document.getElementById('lb').classList.add('open');
   if(!(history.state&&history.state.lb)){ history.pushState({lb:1},''); }
 }
+var skipPop=false;
 function lbClose(fromPop){
   var el=document.getElementById('lb'); if(!el.classList.contains('open')) return;
   el.classList.remove('open');
-  if(!fromPop&&history.state&&history.state.lb){ history.back(); }
+  if(!fromPop&&history.state&&history.state.lb){ skipPop=true; history.back(); }
+}
+function openZone(src){
+  var file=src.split('?')[0].split('/').pop(), zone=null;
+  document.querySelectorAll('#facility-detail .zone').forEach(function(z){ var w=z.querySelector('.zone-photos img.wide'); if(!zone&&w&&w.getAttribute('src').split('?')[0].split('/').pop()===file) zone=z; });
+  if(!zone){ lb(src); return; }
+  var body=document.getElementById('zsBody'); body.innerHTML=''; var c=zone.cloneNode(true);
+  c.querySelectorAll('img').forEach(function(i){ i.removeAttribute('loading'); });
+  body.appendChild(c);
+  var zs=document.getElementById('zs'); zs.classList.add('open'); zs.scrollTop=0; document.body.classList.add('zs-lock');
+  zsOpener=document.activeElement; zs.querySelector('.zs-close').focus({preventScroll:true});
+  history.pushState({zs:1},'');
+}
+var zsOpener=null;
+function zsClose(fromPop){
+  var zs=document.getElementById('zs'); if(!zs.classList.contains('open')) return;
+  zs.classList.remove('open'); document.body.classList.remove('zs-lock');
+  if(zsOpener&&zsOpener.focus) zsOpener.focus({preventScroll:true});
+  if(!fromPop&&history.state&&history.state.zs){ skipPop=true; history.back(); }
 }
 window.addEventListener('popstate',function(e){
-  var el=document.getElementById('lb');
-  if(el.classList.contains('open')){ lbClose(true); }
-  else if(e.state&&e.state.lb){ history.back(); }
+  if(skipPop){ skipPop=false; return; }
+  if(document.getElementById('lb').classList.contains('open')){ lbClose(true); }
+  else if(document.getElementById('zs').classList.contains('open')){ zsClose(true); }
+  else if(e.state&&(e.state.lb||e.state.zs)){ history.back(); }
 });
-document.addEventListener('keydown',function(e){ if(e.key==='Escape') lbClose(); });
+document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ if(document.getElementById('lb').classList.contains('open')) lbClose(); else zsClose(); } });
 (function(){
   var N=78, list=[]; for(var i=1;i<=N;i++){ list.push('img/members/m'+String(i).padStart(2,'0')+'.jpg'); }
   var a=list.slice(0,39), b=list.slice(39);
