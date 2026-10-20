@@ -327,6 +327,15 @@ body.zs-lock{overflow:hidden}
 .coach-more button:focus-visible{outline:3px solid var(--warm);outline-offset:3px}
 @media(max-width:1000px){.coach-grid.collapsed .coach:nth-child(n+3){display:none}}
 @media(max-width:600px){.coach-grid.collapsed .coach:nth-child(n+2){display:none}}
+
+.feel-grid.collapsed .feel-card:nth-child(n+4){display:none}
+.feel-more{text-align:center;margin-top:26px}
+.feel-more button{border:1px solid var(--ink);background:var(--card);color:var(--ink);font-weight:700;font-size:15px;padding:13px 26px;border-radius:999px;cursor:pointer;min-height:48px;font-family:inherit}
+.feel-more button::after{content:" ↓"}
+.feel-more button[aria-expanded="true"]::after{content:" ↑"}
+.feel-more button:focus-visible{outline:3px solid var(--warm);outline-offset:3px}
+@media(max-width:900px){.feel-grid.collapsed .feel-card:nth-child(n+3){display:none}}
+@media(max-width:560px){.feel-grid.collapsed .feel-card:nth-child(n+2){display:none}}
 </style>
 </head>
 <body>
@@ -817,7 +826,7 @@ body.zs-lock{overflow:hidden}
       <h2>시작을 미루게 만드는 마음들.<br>우리가 먼저 알고 있어요.</h2>
       <p class="lead">헬스장 문 앞에서 돌아선 적이 있다면, 그건 게을러서가 아니에요. 그 마음이 어떤 건지 우리는 매일 상담에서 듣습니다.</p>
     </div>
-    <div class="feel-grid">
+    <div class="feel-grid collapsed" id="feelGrid">
       <div class="feel-card reveal">
         <div class="mark">🌱</div>
         <h3><small>첫 PT가 고민이신 분</small>“괜히 돈만 쓰는 거 아닐까요?”</h3>
@@ -868,6 +877,7 @@ body.zs-lock{overflow:hidden}
         <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn warm" href="https://m.booking.naver.com/booking/6/bizes/563071/items/4032576" target="_blank" rel="noopener">편하게 상담 예약</a><a class="btn soft" href="#qna">질문창고 먼저 보기</a></div>
       </div>
     </div>
+    <div class="feel-more"><button type="button" id="feelMore" aria-controls="feelGrid" aria-expanded="false">다른 마음들도 보기</button></div>
   </div>
 </section>
 
@@ -1009,6 +1019,16 @@ function storyLayout(){
     btn.setAttribute('aria-expanded',String(!closing));
     btn.textContent=closing?'선생님 더 보기':'선생님 소개 접기';
     if(closing)document.getElementById('coaches').scrollIntoView({block:'start'});
+  });
+})();
+(function(){
+  var grid=document.getElementById('feelGrid'),btn=document.getElementById('feelMore');
+  btn.addEventListener('click',function(){
+    var closing=!grid.classList.contains('collapsed');
+    grid.classList.toggle('collapsed');
+    btn.setAttribute('aria-expanded',String(!closing));
+    btn.textContent=closing?'다른 마음들도 보기':'마음들 접기';
+    if(closing)document.getElementById('feel').scrollIntoView({block:'start'});
   });
 })();
 document.querySelectorAll('#gnb a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('gnb').classList.remove('open')})});
