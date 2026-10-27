@@ -238,7 +238,9 @@ section[id]{scroll-margin-top:var(--header-offset)}
 .coach .ph .role{position:absolute;right:12px;bottom:12px;z-index:2;background:rgba(18,18,20,.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.28);color:#fff;border-radius:999px;padding:6px 12px;font-size:11.5px;font-weight:500;letter-spacing:.01em;box-shadow:0 4px 14px rgba(0,0,0,.18)}
 .coach .body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
 .coach h3{font-size:22px;font-weight:700;letter-spacing:-.02em}
-.coach .line{font-size:14px;color:var(--ink2)}
+.coach .line{font-size:14px;color:var(--ink2);line-height:1.6}
+.coach .line span+span::before{content:" · "}
+@media (max-width:600px){.coach .line span{display:block;text-wrap:balance;overflow-wrap:break-word}.coach .line span+span{margin-top:3px}.coach .line span+span::before{content:none}}
 .coach .creds{list-style:none;display:grid;gap:5px;font-size:13px;color:var(--ink2);line-height:1.5}
 .coach .creds li{padding-left:12px;position:relative}
 .coach .creds li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--warm)}
@@ -573,7 +575,7 @@ body.zs-lock{overflow:hidden}
         <div class="ph"><span class="init">조</span><img src="img/coach_jogeonung.jpg" alt="" onerror="this.remove()" loading="lazy" decoding="async"><span class="role">대표 · 바디프로필 전문</span></div>
         <div class="body">
           <h3>조건웅</h3>
-          <div class="line">고려대학교 스포츠의학 이학석사 · 대한피트니스지도자협회장</div>
+          <div class="line"><span>고려대학교 스포츠의학 이학석사</span><span>대한피트니스지도자협회장</span></div>
           <ul class="creds"><li>NSCA-CSCS</li><li>NSCA-CPT</li><li>FMS 움직임 평가</li><li>SFMA 움직임 평가</li><li>생활체육지도사</li><li>노인스포츠지도사</li><li>유소년스포츠지도사</li><li>협회 교육·컨퍼런스 운영</li></ul>
           <div class="fit"><b>이런 분과 잘 맞아요</b>바디프로필·시합 준비, PT에 두 번 실패하고 다시 시작하는 분, 20~60대 체형 변화를 원하는 분</div>
           <div class="links"><a href="https://legend-pillow-7ce.notion.site/2aaa8d508f3d8069a989e0769967bdef" target="_blank" rel="noopener">소개</a><a href="https://blog.naver.com/bbka222" target="_blank" rel="noopener">블로그</a><a href="https://www.instagram.com/geonung_jo" target="_blank" rel="noopener">Instagram</a></div>
@@ -583,7 +585,7 @@ body.zs-lock{overflow:hidden}
         <div class="ph"><span class="init">최</span><img src="img/coach_choihaeun.jpg?v=2" alt="" onerror="this.remove()" loading="lazy" decoding="async"><span class="role">마스터 · 통증케어</span></div>
         <div class="body">
           <h3>최하은</h3>
-          <div class="line">물리치료사 면허(보건복지부) · 재활의학과·정형외과 도수치료 5년 이상</div>
+          <div class="line"><span>물리치료사 면허(보건복지부)</span><span>재활의학과·정형외과</span><span>도수치료 5년 이상</span></div>
           <ul class="creds"><li>생활체육지도사</li><li>선수트레이너(KATA)</li><li>골프 메디컬 트레이닝 GMT</li><li>임산부 관리 재활 전문가</li><li>스포츠 테이핑</li><li>영화 ‘범죄도시2’ · ‘밀수’ 배우 컨디셔닝 케어</li><li>2024 NPC(IFBB) 수원 웰니스 2위</li></ul>
           <div class="fit"><b>이런 분과 잘 맞아요</b>허리·어깨·무릎이 아파 운동이 두려운 분, 병원 치료 후 복귀, 자세가 틀어진 학생</div>
           <div class="links"><a href="https://www.woondoc.com/coachdetail/7782" target="_blank" rel="noopener">프로필</a></div>
@@ -593,7 +595,7 @@ body.zs-lock{overflow:hidden}
         <div class="ph"><span class="init">한</span><img src="img/coach_hanseonggyu.jpg" alt="" onerror="this.remove()" loading="lazy" decoding="async"><span class="role">총괄 매니저 · 트레이너</span></div>
         <div class="body">
           <h3>한성규</h3>
-          <div class="line">순천향대 스포츠의학과 · 총괄 매니저 · “운동은 건강하고 똑똑하게”</div>
+          <div class="line"><span>순천향대 스포츠의학과</span><span>총괄 매니저</span><span>“운동은 건강하고 똑똑하게”</span></div>
           <ul class="creds"><li>생활체육지도사</li><li>IPF KOREA 파워리프팅 2급</li><li>IFSH 스포츠 재활마사지</li><li>FITT MES 측정평가사</li><li>SFG1 Level 1</li><li>CES KOREA 교정운동 전문가</li><li>ISPL 퍼포먼스 웨이트 트레이닝 전문가</li></ul>
           <div class="fit"><b>이런 분과 잘 맞아요</b>운동이 처음인 분, 혼자서도 할 수 있게 자립하고 싶은 분, 통증 없이 기본부터</div>
           <div class="links"><a href="https://blog.naver.com/hanstrong77" target="_blank" rel="noopener">블로그</a><a href="https://www.instagram.com/benefitness_h/" target="_blank" rel="noopener">Instagram</a></div>
@@ -603,7 +605,7 @@ body.zs-lock{overflow:hidden}
         <div class="ph"><span class="init">김</span><img src="img/coach_kimjeongmo.jpg" alt="" onerror="this.remove()" loading="lazy" decoding="async"><span class="role">트레이너 · 초보자</span></div>
         <div class="body">
           <h3>김정모</h3>
-          <div class="line">“초보자도 쉽게 하는 운동” · 건강하게 먹으며 빼는 다이어트</div>
+          <div class="line"><span>“초보자도 쉽게 하는 운동”</span><span>건강하게 먹으며 빼는 다이어트</span></div>
           <ul class="creds"><li>생활체육지도사</li><li>NSCA-CPT</li><li>NSCA 스포츠영양코치</li><li>FITT MES 측정평가사</li><li>IFSH 스포츠 재활마사지</li><li>CMS 인지움직임</li><li>핏플러스 하이브리드</li><li>FITOLOGY 영양 전문가 과정</li><li>체형 분석 기반 움직임 교정 · 다이어트 · 바디프로필 · 골프 퍼포먼스</li></ul>
           <div class="fit"><b>이런 분과 잘 맞아요</b>‘왜 하는지’ 이해하며 배우고 싶은 분, 수업 일지로 복습하고 싶은 분, 가족과 2:1</div>
           <div class="links"><a href="https://www.instagram.com/benefitness_jm/" target="_blank" rel="noopener">Instagram</a><a href="https://blog.naver.com/benefit1127/223256185157" target="_blank" rel="noopener">수업 미리보기</a></div>
@@ -613,7 +615,7 @@ body.zs-lock{overflow:hidden}
         <div class="ph"><span class="init">황</span><img src="img/coach_hwangchangwon.jpg" alt="" onerror="this.remove()" loading="lazy" decoding="async"><span class="role">트레이너 · 선수 출신</span></div>
         <div class="body">
           <h3>황창원</h3>
-          <div class="line">여주대 스포츠경호과 · (전) 특전 부사관</div>
+          <div class="line"><span>여주대 스포츠경호과</span><span>(전) 특전 부사관</span></div>
           <ul class="creds"><li>생활체육지도사</li><li>NSCA-CPT</li><li>NSCA 스포츠영양코치</li><li>CES KOREA 퍼스널 트레이너 수석</li><li>ISPL 퍼포먼스 웨이트 전문가</li><li>WNGP 충남 스포츠모델 노비스 2위</li><li>WNGP 당진 피지크 비기너 2위</li><li>NPCA 대전 스포츠모델 오픈 TOP 5</li></ul>
           <div class="fit"><b>이런 분과 잘 맞아요</b>헬스가 처음이라 막막한 분, 눈높이 설명이 필요한 분, 동기부여가 필요한 분</div>
           <div class="links"><a href="https://www.instagram.com/benefitness_one/" target="_blank" rel="noopener">Instagram</a><a href="https://litt.ly/changwonfitness" target="_blank" rel="noopener">프로필</a></div>
@@ -623,7 +625,7 @@ body.zs-lock{overflow:hidden}
         <div class="ph"><span class="init">박</span><img src="img/coach_parkingu.jpg" alt="" onerror="this.remove()" loading="lazy" decoding="async"><span class="role">트레이너 · 체형교정</span></div>
         <div class="body">
           <h3>박인구</h3>
-          <div class="line">다이어트 · 체형교정 전문 · (전) 핫플짐 내포점 대표 · 2023 WNGP 천안 피지크 TOP5</div>
+          <div class="line"><span>다이어트 · 체형교정 전문</span><span>(전) 핫플짐 내포점 대표</span><span>2023 WNGP 천안 피지크 TOP5</span></div>
           <ul class="creds"><li>MMBIBLE-ceps 운동처방 전문가</li><li>DVL-ems 인지움직임 전문가</li><li>WTPA-cps 여성 전문 트레이닝 전문가</li><li>대한모토컨트롤 신경계 교육 수료</li><li>기능해부학 교육 수료</li><li>근막 스트레칭 교육 수료</li><li>스포츠생리학 교육 수료</li><li>거북목 · 라운드숄더 · 골반 불균형 · XO다리, 내포 Before &amp; After 다수</li></ul>
           <div class="fit"><b>이런 분과 잘 맞아요</b>다이어트 후 체형이 더 망가진 느낌인 분, 체중보다 라인과 자세가 목표인 분, 출산 후 체형 변화</div>
           <div class="links"><a href="https://blog.naver.com/dlsrn2123" target="_blank" rel="noopener">블로그</a><a href="https://www.instagram.com/benefitness_park_ii9/" target="_blank" rel="noopener">Instagram</a></div>
@@ -633,7 +635,7 @@ body.zs-lock{overflow:hidden}
         <div class="ph"><span class="init">김</span><img src="img/coach_kimwonkyung.jpg" alt="" onerror="this.remove()" loading="lazy" decoding="async"><span class="role">트레이너 · 선수 출신</span></div>
         <div class="body">
           <h3>김원경</h3>
-          <div class="line">클래식보디빌딩 1위 4회 · “회원님의 노력과 트레이너의 코칭이 만나 결과로”</div>
+          <div class="line"><span>클래식보디빌딩 1위 4회</span><span>“회원님의 노력과 트레이너의 코칭이 만나 결과로”</span></div>
           <ul class="creds"><li>생활체육지도사</li><li>노인스포츠지도사</li><li>유소년스포츠지도사</li><li>NSCA-CPT</li><li>NSCA 스포츠영양코치(SNC) LV1</li><li>FITT MES 측정평가사</li><li>CES KOREA 퍼스널 트레이너</li><li>CES KOREA 교정운동 전문가</li><li>ISPL 퍼포먼스 웨이트 전문가</li><li>2023 NPCA 대전 노비스 · 퍼스트타이머 1위</li><li>2023~24 WNGP 광명 · 당진 · 충남 클래식보디빌딩 -171cm 1위</li></ul>
           <div class="fit"><b>이런 분과 잘 맞아요</b>대회·바디프로필처럼 뚜렷한 목표가 있는 분, 꾸준한 코칭으로 결과를 내고 싶은 분</div>
           <div class="links"><a href="https://www.instagram.com/reel/DTmluRsj1ft/" target="_blank" rel="noopener">코칭 사례</a></div>
@@ -643,7 +645,7 @@ body.zs-lock{overflow:hidden}
         <div class="ph"><span class="init">전</span><img src="img/coach_jeonjuhwan.jpg" alt="" onerror="this.remove()" loading="lazy" decoding="async"><span class="role">트레이너 · 스포츠의학</span></div>
         <div class="body">
           <h3>전주환</h3>
-          <div class="line">차의과학대학교 스포츠의학과 학사 · 선수·의무 트레이너 경력</div>
+          <div class="line"><span>차의과학대학교 스포츠의학과 학사</span><span>선수·의무 트레이너 경력</span></div>
           <ul class="creds"><li>생활스포츠지도사 2급(보디빌딩)</li><li>Medical Taping Trainer (KRSMA)</li><li>Medical Massage Trainer (KRSMA)</li><li>2023~2025 차움 베네핏센터 피트니스 트레이너</li><li>2021 남부선수트레이닝센터 선수트레이너</li><li>2020 인천대건고등학교 의무트레이너</li><li>2019 스위스관광청 트래블 트레이너</li></ul>
           <div class="fit"><b>이런 분과 잘 맞아요</b>골프 기능향상 트레이닝, 시니어 트레이닝, 기능회복 선수트레이닝이 필요한 분</div>
         </div>
@@ -652,7 +654,7 @@ body.zs-lock{overflow:hidden}
         <div class="ph"><span class="init">상담</span><img src="img/coach_consultation.png" alt="상담실장 프로필 사진" onerror="this.remove()" loading="lazy" decoding="async"><span class="role">상담실장 · 첫 방문 안내</span></div>
         <div class="body">
           <h3>상담실장</h3>
-          <div class="line">처음 방문하시는 순간부터 편안하게 안내해 드릴게요.</div>
+          <div class="line"><span>처음 방문하시는 순간부터</span><span>편안하게 안내해 드릴게요.</span></div>
           <div class="fit"><b>편하게 물어보세요</b>운동을 처음 시작하는 분도, PT가 고민인 분도 궁금한 점을 차근차근 듣고 친절히 안내해 드립니다.</div>
         </div>
       </div>
