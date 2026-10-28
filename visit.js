@@ -1,6 +1,7 @@
 /* 베네피트니스 홈페이지 방문 기록 (2026-10-28)
    - 들어온 경로(네이버 검색·광고·플레이스·블로그·인스타 등), 머문 시간, 스크롤 깊이, 전화·예약·플레이스·톡톡 클릭을 센터 관리 앱에 남긴다.
-   - IP·이름·연락처는 저장하지 않는다. 브라우저에 무작위 번호(vid) 하나만 둔다(쿠키 없음).
+   - 이름·연락처는 저장하지 않는다. 브라우저에 무작위 번호(vid) 하나만 둔다(쿠키 없음).
+   - 네이버 광고(n_ 표시)로 들어온 방문만 서버가 접속 IP를 90일 보관한다(부정클릭 감시, 2026-10-28).
    - ?vtest=1 로 열면 시험 방문으로 표시돼 통계에서 빠진다. */
 (function () {
   'use strict';
@@ -73,7 +74,7 @@
     call('site_hit', { p: {
       id: sess.id, vid: vid, first: first, src: classify(), ref: host(document.referrer) || null,
       us: q.get('utm_source'), um: q.get('utm_medium'), uc: q.get('utm_campaign') || q.get('n_campaign_type'),
-      nk: q.get('n_keyword') || q.get('n_query'), land: (location.pathname + (location.hash || '')).slice(0, 200),
+      nk: q.get('n_keyword') || q.get('n_query'), nm: q.get('n_media'), nr: q.get('n_rank'), land: (location.pathname + (location.hash || '')).slice(0, 200),
       dev: device(), test: test
     } });
   }
